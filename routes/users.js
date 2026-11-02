@@ -109,7 +109,7 @@ module.exports = function (router) {
                         { assignedUser: '', assignedUserName: 'unassigned' }
                     );
     
-                    return h.send(res, 200, 'User deleted', user);
+                    return res.status(204).end();
                 } catch (err) {
                     return h.send(res, 500, 'Server error', null);
                 }

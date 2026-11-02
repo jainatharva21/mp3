@@ -116,7 +116,7 @@ module.exports = function (router) {
                 var id = String(task._id);
                 await User.updateMany({ pendingTasks: id }, { $pull: { pendingTasks: id } });
 
-                return h.send(res, 200, 'Task deleted', task);
+                return res.status(204).end();
             } catch (err) {
                 return h.send(res, 500, 'Server error', null);
             }
